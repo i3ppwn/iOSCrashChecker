@@ -37,6 +37,7 @@ def checkforcrash(ip):
 	springboard = '/private/var/mobile/Library/Logs/CrashReporter/LatestCrash.plist'
 	commcenter = '/private/var/logs/CrashReporter/LatestCrash.plist'
 	command = 'ssh -p 2222 root@'+ip+' "cat %s 2>/dev/null; cat %s 2>/dev/null"' % (commcenter, springboard)
+	kernel = '/private/var/mobile/Library/Logs/panic.log'
 	c = os.popen(command)
 	crash = c.read()
 	if crash:
